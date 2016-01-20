@@ -1,0 +1,131 @@
+/*********header修改开始**********/
+body{
+	background: #F3F3F3;
+}
+#header{
+	height: 200px;
+	min-height: 200px;
+}
+#header .header-bg{
+	height: 200px;
+}
+/**********header修改结束**********/
+
+/**********content开始**********/
+#content{
+	width: 1140px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+#content p{
+	color: #555;
+    font-size: 0.9em;
+    line-height: 1.8em;
+    margin: 1em 0;
+}
+
+/**********content结束**********/
+
+/**********post开始**********/
+#post{
+	width: 1138px;
+	height: 212px;
+	margin: 100px auto;
+	position: relative;
+	border: 1px solid #999;
+}
+#post h5{
+	line-height: 1.2em;
+    font-size: 1.2em;
+    text-transform: none;
+    color: #999;
+    position: absolute;
+    top: 47px;
+    left: 32px;
+}
+#post p{
+	color: #555;
+    font-size: 0.9em;
+    line-height: 1.8em;
+    margin: 1em 0;
+    position: absolute;
+    top: 70px;
+    left: 160px;
+}
+#post img{
+	position: absolute;
+	left: 32px;
+	top: 74px;
+}
+/**********form开始**********/
+form{
+	display: block;
+	margin: 50px auto;
+	width: 1030px;
+}
+form h3{
+	font-size: 2em;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+}
+form label{
+	/*display: block;*/
+    color: #999;
+    font-weight: 300;
+    display: block;
+    margin-top: 20px;
+}
+form input{
+	width: 855px;
+	height: 54px;
+	border: none;
+}
+form textarea{
+	width: 1023px;
+	height: 193px;
+}
+#submit{
+	width: 172px;
+	height: 58px;
+	background: #ccc;
+	color: white;
+	font-size: 110%;
+	cursor: pointer;
+}
+/**********form结束**********/
+
+/**********warp开始**********/
+#warp{
+	width: 100%;
+	background: #F3F3F3;
+	height: 2000px;
+}
+/**********warp结束**********/
+
+/**********comment开始**********/
+
+#comment .comment-header{
+	width: 1140px;
+	height: 40px;
+	margin: 10px auto;
+	margin-bottom: 0;
+	line-height:40px;
+	background: #f7f8fa;
+	border: solid 1px #c2c2c2;
+}
+#comment .comment-header p{
+	display: block;
+	padding-left: 20px;
+}
+#comment .comment-bottom{
+	width: 1140px;
+	height: 100px;
+	margin: 0 auto;
+	background: #f7f8fa;
+	border: solid 1px #c2c2c2;
+	border-top:0;
+}
+
+
+/**********comment结束**********/

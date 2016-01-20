@@ -1,0 +1,369 @@
+/**********通用样式开始**********/*
+.center{
+	height: 100%;
+	width: 1000px;
+	margin: 0 auto;
+	/*background: red;*/
+}
+.title{
+	text-align: center;
+	font-weight: 900;
+	font-size: 2.5em;
+    color: #595959;
+    padding-top: 50px;   
+}
+.stress{
+	width: 92px;
+	height: 7px;
+	background: #88ccd8;
+	margin: 0 auto;
+	display: block;
+	margin-top: 10px;
+}
+body{
+	background: #f3f3f3;
+}
+/**********通用样式结束**********/
+
+/**********about开始**********/
+#about{
+	background: #f3f3f3;
+	width: 100%;
+	height: 660px;
+	position: relative;
+}
+#about .center .text{
+	width: 500px;
+	float: left;
+	padding-top: 80px;
+	color: #595959;
+}
+#about .center .text h3{
+	font-size: 1.5em;
+}
+#about .center .text h4{
+	line-height: 1.8em;
+}
+#about .center .text p{
+	font-size: 0.9em;
+	line-height: 1.6em;
+}
+#about .center .play{
+	float: right;
+	padding-top: 100px;
+}
+/**********about结束**********/
+
+/**********services开始**********/
+#services{
+	background: url(../img/services-bg.jpg) no-repeat;
+	width: 100%;
+	height: 800px;
+	position: relative;
+}
+#services .center .title{
+	color: white;
+}
+#services .show{
+	width: 930px;
+	margin: 0 auto;
+}
+#services .show li{
+	width: 270px;
+	float: left;
+	margin-top: 60px;
+	margin-right: 60px;
+	text-align: center;
+	color: #878A8E;
+}
+#services .show h3{
+	line-height: 2em;
+}
+#services .show p{
+	line-height: 1.5em;	
+}
+#services .show .cion-img{
+	display: block;
+	background: url(../img/services-icons.png) no-repeat;
+	width: 48px;
+	height: 42px;
+	margin: 15px auto;
+}
+#services .show .cion-position1{
+	background-position: 0 0;
+}
+#services .show .cion-position2{
+	background-position: -55px 0;
+}
+#services .show .cion-position3{
+	background-position: -124px 0;
+}
+#services .show .cion-position4{
+	background-position: -180px 0;
+}
+#services .show .cion-position5{
+	background-position: -241px 0;
+}
+#services .show .cion-position6{
+	background-position: -302px 0;
+}
+/**********services开始**********/
+
+/**********portfolio开始**********/
+#portfolio{
+	background: #f3f3f3;
+	width: 100%;
+	height: 550px;
+	position: relative;
+}
+#portfolio .center{
+	width: 1140px;
+	position: relative;
+}
+#portfolio .show{
+	position: relative;
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 1140px;
+	height: 358px;
+	/*background: red;*/
+}
+#portfolio .show .container{
+	float: left;
+	width: 285px;
+	height: 179px;
+	position: relative;
+	overflow: hidden;
+}
+#portfolio .show .container .img{
+	width: 285px;
+	height: 179px;
+	position: absolute;
+	z-index: 1;
+}
+#portfolio .show .container .mask{
+	position: absolute;
+	opacity: 0;
+  	filter: alpha(opacity=0);
+	background: black;
+	width: 285px;
+	height: 179px;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	z-index: 2;
+}
+#portfolio .show .container .mask img{
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 5px;
+	padding-top: 30px;
+}
+#portfolio .show .container .mask h3{
+	color: white;
+	text-align: center;
+	font-size: 120%;
+}
+#portfolio .show .container .mask p{
+	color: white;
+	text-align: center;
+	font-size: 120%;
+}
+#portfolio .show .container .mask a{
+	width: 285px;
+	height: 179px;
+	display: block;
+	background: white;
+	opacity: 0;
+  	filter: alpha(opacity=0);
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 0;
+}
+/*图片高度设定死！！！*/
+
+/**********portfolio结束*********/
+
+/**********blog开始*********/
+#blog{
+	background: #f3f3f3;
+	width: 100%;
+	position: relative;
+	/*height: 3000px;*/
+}
+#blog .blog-articals ul{
+	width: 305px;
+	float: left;
+	margin-right: 40px;
+	margin-top: 40px;
+}
+#blog .blog-articals ul li{
+	border: 1px solid black;
+	margin-bottom: 10px;
+	background: white;
+	/*position: relative;*/
+}
+#blog .blog-articals ul li img{
+	width: 250px;
+	display: block;
+	height: 172px;
+	margin: 10px auto;
+}
+#blog .blog-articals ul li a{
+	color: #595959;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+#blog .blog-articals ul li p{
+	color: #595959;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 1.5em;
+    margin-top: 1em;
+    -webkit-appearance: none;
+}
+#blog .blog-artical-info{
+	width: 220px;
+	margin: 10px auto;
+}
+
+/**********blog结束*********/
+
+/**********projects开始*********/
+#projects{
+	background: url(../img/projects-bg.jpg) no-repeat 0 0;
+	width: 100%;
+	height: 650px;
+	position: relative;
+	clear: both;
+}
+#projects .center{
+	position: relative;
+}
+#projects .cycle{
+	background: url(../img/cycle.png) no-repeat 0 0;
+	width: 284px;
+	height: 284px;
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -142px;
+	top: 50%;
+	margin-top: -142px;
+}
+#projects .icons{
+	width: 70px;
+    height: 70px;
+    display: inline-block;
+    background: #FFF;
+    border-radius: 30em;
+    position: absolute;
+    cursor: pointer;
+}
+#projects .icons span{
+	display: block;	
+	width: 70px;
+    height: 70px;
+    background: url(../img/project-icons.png) no-repeat 22px 15px;
+}
+#projects .project1{
+	top: 154px;
+    left: 50%;
+    margin-left: -35px;
+}
+#projects .project2{
+    left: 330px;
+    top: 360px;
+}
+#projects .project3{
+    right: 350px;
+    top: 360px;
+}
+#projects .common{
+	position: absolute;
+}
+#projects .text1{
+	top: 80px;
+	left: 420px;
+}
+#projects .text2{
+	top: 380px;
+	left: 200px;
+}
+#projects .text3{
+	top: 380px;
+	right: 130px;
+}
+#projects .common h4{
+	color: white;
+	font-size: 160%;
+	text-align: center;
+}
+#projects .common p{
+	color: white;
+	font-size: 180%
+}
+/**********projects开始*********/
+/**********contact开始*********/
+#contact{
+	height: 175px;
+	background: #f3f3f3;
+	width: 100%;
+}
+#contact .center p{
+	text-align: center;
+	line-height: 175px;
+	color: black;
+	font-size: 200%;
+}
+#contact .center a{
+	color: white;
+	background: #5dbed2;
+	padding: 10px 20px;
+	margin-left: 30px;
+}
+/**********contact结束*********/
+
+/**********footer开始*********/
+#footer{
+	height: 100px;
+	background: #f3f3f3;
+	width: 100%;
+}
+#footer .center{
+	border-top: 1px solid #595959;
+}
+
+#footer .center p{
+	text-align: center;
+	line-height: 100px;
+	color: black;
+	font-size: 120%;
+}
+
+/**********fotter结束*********/
+
+/**********go-top开始*********/
+#go-top{
+	display: none;
+	height: 40px;
+	width: 40px;
+	background: url(../img/to-top1.png) no-repeat 0 0;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	/*background: red;*/
+	z-index: 10;
+	cursor: pointer;
+}
+#go-top a{
+	height: 40px;
+	width: 40px;
+	display: block;
+}
+
+
+
+/**********go-top结束*********/
