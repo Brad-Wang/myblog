@@ -125,7 +125,31 @@ form textarea{
 	background: #f7f8fa;
 	border: solid 1px #c2c2c2;
 	border-top:0;
+	position: relative;
 }
-
-
+#comment .comment-bottom img{
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	top: 10px;
+	left: 50px;
+}
+#comment .comment-bottom span{
+	width: 30px;
+	height: 100px;
+	background: cornflowerblue;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: white;
+	font-size: 120%;
+	line-height: 100px;
+	text-align: center;
+}
+#comment .comment-bottom p{
+	left: 150px;
+	display: block;
+	line-height: 100px;
+	position: absolute;
+}
 /**********comment结束**********/

@@ -1,3 +1,9 @@
+<?php
+    $admin_message = $this -> session -> userdata('admin_message');
+    if(!$admin_message){
+        redirect('admin/login');
+    }
+?>
 <header class="am-topbar admin-header">
     <div class="am-topbar-brand">
         <small>后台管理</small>
@@ -11,7 +17,7 @@
             <li><a href="javascript:;"><span class="am-icon-envelope-o"></span> 收件箱 <span class="am-badge am-badge-warning">new</span></a></li>
             <li class="am-dropdown" data-am-dropdown>
                 <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                    <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+                    <span class="am-icon-users"></span> 管理员(<?php echo $admin_message->admin_name; ?>) <span class="am-icon-caret-down"></span>
                 </a>
                 <ul class="am-dropdown-content">
                     <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>

@@ -2,15 +2,51 @@
 
 class Blog extends CI_Controller {
 
+    //1.用户点击博客，查看文章详情，同时显示文章以及评论
     public function blog_login(){
         $blog_id = $this->input->get('blog_id');
         $this-> load -> model('blog_model');
-        $row = $this-> blog_model ->get_blog_by_id($blog_id);
+        $blog = $this-> blog_model ->get_blog_by_id($blog_id);
+        $comments = $this-> blog_model ->get_comment_by_id($blog_id);
         $data = array(
-            'blog' => $row
+            'blog' => $blog,
+            'comments' => $comments
         );
+
         $this->load->view('blog',$data);
     }
+
+
+    //2.提交按钮，数据库中保存文章数据
+    public function blog_save(){
+
+        $title = $this->input->post('title');
+        $content = $this->input->post('content');
+        $author = $this->input->post('author');
+//        echo $title;
+//         die;
+        if($title == ''||$content == ''||$author == ''){
+            echo 'Not';
+        }else{
+            $this->load->model('blog_model');
+            $rows = $this->blog_model->save($title, $content, $author);
+            if($rows > 0){
+                echo 'Success';
+            }else{
+                echo 'Fail';
+            }
+        }
+    }
+
+
+    //3.打开到发布博客界面
+
+    public function blog_save_form(){
+        $this -> load -> view('admin/blog_save_form');
+    }
+
+
+
     public function admin_form(){
     	$this -> load -> model('admin_model');
         $row = $this -> admin_model -> revise(2);
@@ -21,26 +57,9 @@ class Blog extends CI_Controller {
         $this -> load -> view('admin/admin-mgr-form', $data);
     }
 
-    public function blog_save(){
 
-    $title = $this->input->post('title');
-    $content = $this->input->post('content');
-    $author = $this->input->post('author');
-    // echo $title.$content.$author;
-    // die;
 
-    if($title == ''||$content == ''||$author == ''){
-    	echo '<html><script>alert("有信息未填写");</script></html>';
-        $this->admin_form();
-        //调用方法
-    }else{
-        $this->load->model('blog_model');
-        $this->blog_model->save($title, $content, $author);
-        echo '<html><script>alert("已提交!");</script></html>';
-        $this->admin_form();
-    }
 
-	}
 
     public function save_comment(){
 
@@ -56,7 +75,7 @@ class Blog extends CI_Controller {
         }else{
             $this -> load ->model('blog_model');
             $this -> blog_model -> save_comment($blog_id,$com_name,$website,$subject,$email);
-            $this -> blog_login();
+            redirect('blog/blog_login?blog_id='.$blog_id);
         }
     }
 

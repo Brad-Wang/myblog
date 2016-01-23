@@ -2,28 +2,41 @@
 
 class Admin extends CI_Controller {
 
+    //管理员界面登录
     public function login(){
         $this->load->view('admin/login');
     }
 
+    //验证管理员信息
     public function check_login(){
         //1. 接数据
         $admin_name = $this -> input -> post('admin_name');
         $admin_pwd = $this -> input -> post('admin_pwd');
-
-
-
         //2. 查数据
         $this -> load -> model('admin_model');
-        $row = $this -> admin_model -> get_by_name_pwd($admin_name, $admin_pwd);
-
+        $admin_message = $this -> admin_model -> get_by_name_pwd($admin_name, $admin_pwd);
+        $data = array(
+            'admin_message' => $admin_message
+        );
         //3.跳转
-        if($row){
+        if($admin_message){
+            $this->session->set_userdata($data);
             $this->load->view('admin/admin-index');
         }else{
             $this->load->view('admin/login');
         }
     }
+
+    //链接到博客管理界面并请求文章数据
+    public  function  admin_blog(){
+        $this -> load -> model('blog_model');
+        $blogs = $this -> blog_model -> get_all();
+        $data = array(
+            'blogs' => $blogs
+        );
+        $this -> load -> view('admin/admin-blog',$data);
+    }
+
 
     public  function admin_mgr(){
         $this -> load -> model('admin_model');

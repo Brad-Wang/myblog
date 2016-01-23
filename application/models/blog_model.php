@@ -2,10 +2,12 @@
 
 class Blog_model extends CI_Model {
 
+    //1.请求文章数据
     public function get_all(){
         $this -> db -> select("*");
         $this -> db -> from('t_blog blog');
         $this -> db -> join('t_admin admin', 'blog.author=admin.admin_id');
+        $this -> db -> order_by('add_time','desc');
         return $this -> db -> get() -> result();
     }
 
@@ -17,14 +19,16 @@ class Blog_model extends CI_Model {
        $this -> db -> limit(6, $page);
        return $this -> db -> get() -> result();
    }
+
+    //2.保存文章在数据库
    public function save($title, $content, $author){
       $data = array(
             'title'=>$title,
             'content'=>$content,
             'author'=>$author
-        );
-        $this->db->insert('t_blog',$data);
-
+       );
+      $this -> db -> insert('t_blog',$data);
+      return $this -> db -> affected_rows();
    }
 
     public function get_blog_by_id($blog_id){
@@ -33,9 +37,15 @@ class Blog_model extends CI_Model {
         $this -> db -> join('t_admin admin', 'admin.admin_id = blog.author');
         $this -> db -> where('blog.blog_id',$blog_id);
 
-        $result = $this -> db -> get()->row();
-        return $result;
+        $blog = $this -> db -> get()->row();
+        return $blog;
     }
+
+    public function get_comment_by_id($blog_id){
+        return $comments = $this -> db -> get_where('t_comment',array('blog_id' => $blog_id)) -> result();
+
+    }
+
 
     public function save_comment($blog_id,$com_name,$website,$subject,$email){
         $data = array(

@@ -2,6 +2,7 @@
 
 class Admin_model extends CI_Model {
 
+    //根据用户名，密码获取信息
     public function get_by_name_pwd($name, $pwd){
         //'select * from t_admin where admin_name=$name and admin_pwd=$pwd'
         $data = array(

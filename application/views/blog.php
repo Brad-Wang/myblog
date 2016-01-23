@@ -53,11 +53,23 @@
 			<div class="comment-header">
 				<p>所有评论</p>
 			</div>
-			<div class="comment-bottom">
-				<div class="comment-bottom-top">
 
-				</div>
+			<?php
+			$count=0;
+			foreach($comments as $comment){
+
+			?>
+
+			<div class="comment-bottom">
+				<span><?php echo ++$count ;?></span>
+				<img src="img/comment.jpg" alt="">
+				<p><?php echo $comment -> subject; ?></p>
 			</div>
+
+			<?php
+			}
+			?>
+
 		</div>
 
 
