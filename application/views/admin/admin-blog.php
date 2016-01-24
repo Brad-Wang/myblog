@@ -40,6 +40,7 @@
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
             <button type="button" class="am-btn am-btn-default"><a href="blog/blog_save_form"><span class="am-icon-plus"></span> 新增</a></button>
+            <button type="button" class="am-btn am-btn-default"><a href="#" style="color:#de6662"><span class="am-icon-trash-o"></span> 批量删除</a></button>
           </div>
         </div>
       </div>
@@ -68,13 +69,12 @@
                 <td><?php echo $blog -> blog_id; ?></td>
                 <td><a href="#"><?php echo $blog -> admin_name; ?></a></td>
                 <td><?php echo $blog -> title; ?></td>
-                <td><?php echo mb_substr($blog -> content,0,8).'......'; ?></td>
+                <td><?php echo mb_substr($blog -> content,0,15).'......'; ?></td>
                 <td><?php echo $blog -> add_time; ?></td>
                 <td>
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
-                      <button data-id="<?php echo $blog -> blog_id; ?>" class="am-btn am-btn-default am-btn-xs am-text-secondary revise-am"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                      <button data-id="<?php echo $blog -> blog_id; ?>" class="am-btn am-btn-noadd am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                      <button data-id="<?php echo $blog -> blog_id; ?>" class="am-btn blog-btn-noadd am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
                     </div>
                   </div>
                 </td>
@@ -112,22 +112,24 @@
 <script>
 
  $(function(){
-   $('.am-btn-noadd').on('click', function(){
-     var adminId =  $(this).data('id');
-     if(confirm('确定是否删除记录，不可恢复!?')){
-       location.href = 'admin/delete_admin?admin_id='+adminId;
+   $('.blog-btn-noadd').on('click', function(){
+     var $that = $(this);
+     var blogId =  $(this).data('id');
+     if(confirm('请确定是否删除记录，将不可恢复!!')&&confirm('请再次确定是否删除记录，将不可恢复!!')){
+       $.get(
+         "blog/blog_delete",
+         {blog_id: blogId},
+         function(res){
+           if(res == 'Success'){
+             $that.parents('tr').remove();
+             alert('已删除');
+           }else{
+             alert('未删除成功，请稍后再试');
+           }
+         }
+       );
      }
    });
-
-   $('.revise-am').on('click', function(){
-     var adminId =  $(this).data('id');
-     location.href = 'admin/revise_admin?admin_id='+adminId;
-   });
-
-
-
-
-
  });
 
 

@@ -11,6 +11,14 @@ class Blog_model extends CI_Model {
         return $this -> db -> get() -> result();
     }
 
+    //2.根据id在数据库中删除文章
+    public function delete_by_id($blog_id){
+        $this -> db -> delete('t_blog', array('blog_id' => $blog_id));
+        return $this -> db -> affected_rows();
+    }
+
+
+
    public function get_by_page($page){
        //return $this->db->get('t_blog', 6, $page) -> result();
        $this -> db -> select("*");
@@ -20,7 +28,7 @@ class Blog_model extends CI_Model {
        return $this -> db -> get() -> result();
    }
 
-    //2.保存文章在数据库
+    //3.保存文章在数据库
    public function save($title, $content, $author){
       $data = array(
             'title'=>$title,

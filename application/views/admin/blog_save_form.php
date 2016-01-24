@@ -43,13 +43,13 @@
 
     <div class="am-tabs-bd">
       <div class="am-tab-panel am-fade am-in am-active" id="tab1">
-        <form class="am-form" action="blog/blog_save" method="post">
+        <form class="am-form" action="blog/blog_save" method="post" enctype="multipart/form-data">
           <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">
               文章标题
             </div>
             <div class="am-u-sm-8 am-u-md-4">
-              <input type="text" class="am-input-sm" id="title" name="title">
+              <input type="text" class="am-input-sm input" id="title" name="title" value="">
             </div>
             <div class="am-hide-sm-only am-u-md-6">*必填，不能超过10个字符</div>
           </div>
@@ -59,20 +59,20 @@
               文章作者
             </div>
             <div class="am-u-sm-8 am-u-md-4 am-u-end col-end" name="author">
-              <input type="text" class="am-input-sm" name="author">
+              <input type="text" class="am-input-sm input" name="author" value="">
             </div>
             <div class="am-hide-sm-only am-u-md-6">*必填，请输入管理员序号</div>
           </div>
 
-          <!-- <div class="am-g am-margin-top">
+          <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">
-              信息来源
+              图片上传
             </div>
             <div class="am-u-sm-8 am-u-md-4">
-              <input type="text" class="am-input-sm">
+              <input type="file" class="am-input-sm">
             </div>
-            <div class="am-hide-sm-only am-u-md-6">选填</div>
-          </div> -->
+            <div class="am-hide-sm-only am-u-md-6">*选填，图片格式不大于3M</div>
+          </div>
 
           <!-- <div class="am-g am-margin-top">
             <div class="am-u-sm-4 am-u-md-2 am-text-right">
@@ -89,7 +89,7 @@
               文章内容
             </div>
             <div class="am-u-sm-12 am-u-md-10">
-              <textarea rows="10" placeholder="" name="content"></textarea>
+              <textarea rows="10" placeholder="" name="content" class="input"></textarea>
             </div>
           </div>
 
@@ -132,27 +132,37 @@
     <script>
       $(function(){
         $('#save_blog').on('click',function(){
-          var $title = $('input[name="title"]').val(),
-              $author = $('input[name="author"]').val(),
-              $content = $('textarea[name="content"]').val();
-          if($title == ''||$author == ''||$content == ''){
-
-            $('input:empty').css("border","red 2px solid")
-                                    .focus(function(){
-                                      $(this).css("border","");
-                                    });
-           $('textarea:empty').css("border","red 2px solid")
-                                   .focus(function(){
-                                     $(this).css("border","");
-                                    });
-           alert('您有信息未填写！');
+          var $title = $('input[name="title"]'),
+              $author = $('input[name="author"]'),
+              $content = $('textarea[name="content"]');
+//          $('.input').each(function(){
+//              if(this.value == ""){
+//                $(this).css("border","red 2px solid")
+//                       .focus(function(){
+//                         $(this).css("border","");
+//                       });
+//              }
+//          });
+          if($title.val() == ''||$author.val() == ''||$content.val() == ''){
+              $('.input').each(function(){
+                if(this.value == ""){
+                  $(this).css("border","red 2px solid")
+                        .focus(function(){
+                          $(this).css("border","");
+                        });
+                }
+              });
+              alert('您有信息未填写！');
           }else{
             $.post(
                 "blog/blog_save",
-                {title:$title,author:$author,content:$content},
+                {title:$title.val(),author:$author.val(),content:$content.val()},
                 function(res){
                   if(res == 'Success'){
                     alert('已提交！！');
+                    $title.val('');
+                    $author.val('');
+                    $content.val('');
                   }else if(res == 'Fail'){
                     alert('保存失败，请稍后再试！');
                   }else if(res == 'Not'){

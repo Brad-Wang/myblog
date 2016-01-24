@@ -45,6 +45,22 @@ class Blog extends CI_Controller {
         $this -> load -> view('admin/blog_save_form');
     }
 
+    //4.删除博客
+    public function blog_delete(){
+        $blog_id = $this -> input -> get('blog_id');
+        $this -> load -> model('blog_model');
+        $row = $this -> blog_model -> delete_by_id($blog_id);
+        if($row>0){
+            echo 'Success';
+        }else{
+            echo 'Fail';
+        }
+    }
+
+
+
+
+
 
 
     public function admin_form(){
